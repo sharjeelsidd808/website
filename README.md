@@ -1,2 +1,2 @@
 # website
-Infographs AI Website
+Infographs AI Website - Landing Page
