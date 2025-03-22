@@ -1,0 +1,118 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    --primary: 60 100% 50%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 9%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar colors remain unchanged */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-neo-white text-neo-black font-dm-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-dm-sans font-bold;
+  }
+
+  p, span, a, button {
+    @apply font-space-mono;
+  }
+}
+
+@layer components {
+  .neo-card {
+    @apply bg-neo-white border-4 border-neo-black shadow-neo transition-all duration-300 hover:shadow-neo-hover transform hover:-translate-y-1;
+  }
+  
+  .neo-button {
+    @apply px-6 py-3 bg-neo-yellow border-4 border-neo-black shadow-neo font-bold transition-all duration-300 hover:shadow-neo-hover transform hover:-translate-y-1 active:translate-y-0 active:shadow-none;
+  }
+  
+  .neo-input {
+    @apply bg-neo-white border-4 border-neo-black px-4 py-2 focus:outline-none focus:ring-2 focus:ring-neo-blue;
+  }
+
+  .neo-chip {
+    @apply px-3 py-1 text-xs uppercase tracking-wider bg-neo-yellow border-2 border-neo-black font-bold inline-block;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Custom animations for neo-brutalism */
+.neo-hover-effect {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.neo-hover-effect:hover {
+  transform: translateY(-5px);
+}
+
+/* Staggered animation for children elements */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-children > *:nth-child(1) { animation: stagger-fade-in 0.5s 0.1s forwards; }
+.stagger-children > *:nth-child(2) { animation: stagger-fade-in 0.5s 0.2s forwards; }
+.stagger-children > *:nth-child(3) { animation: stagger-fade-in 0.5s 0.3s forwards; }
+.stagger-children > *:nth-child(4) { animation: stagger-fade-in 0.5s 0.4s forwards; }
+.stagger-children > *:nth-child(5) { animation: stagger-fade-in 0.5s 0.5s forwards; }
+
+@keyframes stagger-fade-in {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
